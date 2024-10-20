@@ -1,0 +1,54 @@
+.boxshadow{
+  box-shadow: 10px 10px 10px rgb(61, 5, 61);
+} 
+
+.create{
+  transition: all 0.5s ease;
+}
+.create:hover{
+  filter: drop-shadow(4px 4px 10px rgba(252, 68, 255, 0.661));
+
+}
+
+.icons{
+  color: purple;
+  filter: drop-shadow(4px 4px 10px rgb(0, 0, 0));
+  transition: all 0.4s ease;
+
+}
+body{
+  z-index: 1;
+}
+
+#tsparticles {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -100; /* To place particles behind other content */
+}
+
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+  width: 100%;
+  margin: auto;
+  height: 3px;
+  background-image: linear-gradient(indigo, blue, purple);
+  transform: scaleX(0);
+  transition: 0.5s all ease;
+  border-radius: 100px;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1.2);
+}
