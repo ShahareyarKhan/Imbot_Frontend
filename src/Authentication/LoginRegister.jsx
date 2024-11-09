@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { signInWithGoogle } from './Firebase'; // Import Google login function
+import { useNavigate } from 'react-router-dom'; // Assuming React Router
+import { signInWithGoogle } from './Firebase'; // Ensure this function is correctly set up in Firebase
+import { FaGoogle } from 'react-icons/fa';
+import ParticlesComponent from '../Components/ParticlesComponent';
 
 const LoginRegister = () => {
+  const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(false);
+  const [login, setLogin] = useState(false); // Login state to manage the session
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,113 +28,128 @@ const LoginRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const url="http://localhost:3000"
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegister) {
-      console.log('Registering user:', formData);
-    } else {
-      console.log('Logging in user:', formData);
+      const { name, email, password } = formData;
+      try {
+        console.log(name, email, password);
+        const response = await fetch(`${url}/api/auth/signup`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, password })
+        });
+        
+        const json = await response.json();
+        if (json.success) {
+          localStorage.setItem('token', json.authtoken);
+          setLogin(true);
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        } else {
+          alert("Invalid Credentials");
+        }
+      } catch (error) {
+        console.error('Registration failed:', error);
+      }
+    }
+    else{
+      const { email, password } = formData;
+      try {
+        console.log(email, password);
+        const response = await fetch(`${url}/api/auth/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+        
+        const json = await response.json();
+        if (json.success) {
+          localStorage.setItem('token', json.authtoken);
+          setLogin(true);
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        } else {
+          alert("Invalid Credentials");
+        }
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
     }
   };
 
-  // Handle Google Login
-  const handleGoogleLogin = () => {
-    signInWithGoogle()
-      .then((user) => {
-        console.log('Logged in with Google:', user);
-        // Handle user login (e.g., store in state or redirect)
-      })
-      .catch((error) => {
-        console.error('Google login failed:', error);
-      });
-  };
-
   return (
-    <div className="flex justify-center items-center min-h-screen ">
-      <div className="w-full max-w-md p-8 bg-[#081233]  rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-center mb-6 text-indigo-600">
+    <div className="flex justify-center items-center min-h-[90vh] ">
+      <ParticlesComponent /> {/* Optional if using particle effects */}
+      <div className="w-full max-w-[500px] p-10 bg-[#081233] flex flex-col justify-center rounded-xl shadow-lg ">
+        <h2 className="text-3xl font-bold text-center bg-gradient-to-r p-8 from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
           {isRegister ? 'Register' : 'Login'}
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+
+        <form onSubmit={handleSubmit} className="space-y-5">
           {isRegister && (
             <div>
-              <label htmlFor="name" className="block text-gray-500 font-medium">
-                Name
-              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border-0 border-b  bg-transparent focus:outline-none"
+                className="w-full px-2 py-2 border-0 border-b bg-transparent focus:outline-none"
                 placeholder="Enter your name"
                 required
               />
             </div>
           )}
           <div>
-            <label htmlFor="email" className="block text-gray-500 font-medium">
-              Email
-            </label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-2 py-2 border-0 border-b bg-transparent focus:outline-none"
               placeholder="Enter your email"
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-500 font-medium">
-              Password
-            </label>
             <input
               type="password"
               id="password"
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-2 py-2 border-0 border-b bg-transparent focus:outline-none"
               placeholder="Enter your password"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300"
+            className="w-full py-2 text-white bg-inherit border font-semibold rounded hover:rounded-xl logbtn"
+            style={{ transition: 'all 0.8s ease' }}
           >
             {isRegister ? 'Register' : 'Login'}
           </button>
         </form>
-        <div className="mt-6 flex items-center justify-center">
-          <div className="w-full border-t border-gray-300"></div>
-          <span className="mx-4 text-gray-500">OR</span>
-          <div className="w-full border-t border-gray-300"></div>
-        </div>
-        <button
-          onClick={handleGoogleLogin}
-          className="w-full py-3 mt-6 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300 flex items-center justify-center"
-        >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-            alt="Google Logo"
-            className="w-6 h-6 mr-2"
-          />
-          Login with Google
-        </button>
-        <p className="text-center mt-6 text-gray-600">
-          {isRegister ? 'Already have an account?' : "Don't have an account?"}
-          <button
+
+        <div className="text-center w-full gap-3 mt-9 text-gray-600 flex justify-center items-center">
+          <div>{isRegister ? 'Already have an account?' : "Don't have an account?"}</div>
+          <div
             onClick={toggleForm}
-            className="text-blue-500 font-bold ml-1 hover:underline"
+            className="text-blue-500 font-bold cursor-pointer hover:underline"
           >
             {isRegister ? 'Login' : 'Register'}
-          </button>
-        </p>
+          </div>
+        </div>
       </div>
     </div>
   );

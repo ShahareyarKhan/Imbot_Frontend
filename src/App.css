@@ -1,22 +1,24 @@
-.boxshadow{
+.boxshadow {
   box-shadow: 10px 10px 10px rgb(61, 5, 61);
-} 
+}
 
-.create{
+.create {
   transition: all 0.5s ease;
 }
-.create:hover{
+
+.create:hover {
   filter: drop-shadow(4px 4px 10px rgba(252, 68, 255, 0.661));
 
 }
 
-.icons{
+.icons {
   color: purple;
   filter: drop-shadow(4px 4px 10px rgb(0, 0, 0));
   transition: all 0.4s ease;
 
 }
-body{
+
+body {
   z-index: 1;
 }
 
@@ -26,7 +28,8 @@ body{
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: -100; /* To place particles behind other content */
+  z-index: -100;
+  /* To place particles behind other content */
 }
 
 
@@ -43,12 +46,35 @@ body{
   width: 100%;
   margin: auto;
   height: 3px;
-  background-image: linear-gradient(indigo, blue, purple);
+  background: white;
   transform: scaleX(0);
+  border-radius: 10px;
   transition: 0.5s all ease;
-  border-radius: 100px;
 }
 
 .nav-link:hover::after {
   transform: scaleX(1.2);
 }
+
+.nav-link:hover {
+  color: rgb(196, 172, 172);
+}
+
+.logbtn:hover {
+  box-shadow: 250px 15px 10px rgba(128, 0, 128, 0.577) inset, -250px -15px 15px rgba(128, 0, 128, 0.577) inset;
+}
+
+::-webkit-scrollbar{
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: indigo;
+  border-radius: 1000px;
+}
+
+.social-icons {
+  transition: all 0.4s ease;
+  filter: drop-shadow(4px 4px 10px rgb(0, 0, 0));
+  color: rgb(59, 59, 255);
+ }
