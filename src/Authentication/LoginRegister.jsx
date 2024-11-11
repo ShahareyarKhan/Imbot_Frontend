@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Assuming React Router
-import { signInWithGoogle } from './Firebase'; // Ensure this function is correctly set up in Firebase
-import { FaGoogle } from 'react-icons/fa';
 import ParticlesComponent from '../Components/ParticlesComponent';
+import Header from '../Components/Header';
 
 const LoginRegister = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const LoginRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const url="http://localhost:3000"
+  const url="https://imbot-backend.vercel.app"
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegister) {
@@ -75,6 +74,7 @@ const LoginRegister = () => {
           setLogin(true);
           setTimeout(() => {
             navigate('/');
+            window.navigator.reload();
           }, 2000);
         } else {
           alert("Invalid Credentials");
@@ -86,9 +86,10 @@ const LoginRegister = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[90vh] ">
+    <>
+    <div className="flex justify-center items-center min-h-[80vh] ">
       <ParticlesComponent /> {/* Optional if using particle effects */}
-      <div className="w-full max-w-[500px] p-10 bg-[#081233] flex flex-col justify-center rounded-xl shadow-lg ">
+      <div className="w-[90%] max-w-[500px] p-5 lg:p-8 bg-[#081233] flex flex-col justify-center rounded-xl shadow-lg ">
         <h2 className="text-3xl font-bold text-center bg-gradient-to-r p-8 from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
           {isRegister ? 'Register' : 'Login'}
         </h2>
@@ -152,6 +153,9 @@ const LoginRegister = () => {
         </div>
       </div>
     </div>
+    
+    </>
+
   );
 };
 

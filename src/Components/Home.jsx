@@ -5,9 +5,11 @@ import Features from './Features'
 import { FaArrowRight } from 'react-icons/fa6'
 import Pricing from './Pricing'
 import Contact from './Contact'
+import Header from './Header'
 
 const Home = () => {
     return (
+        <>
         <section id='home'>
             <div className='flex flex-col min-h-[90vh] md:min-h-[90vh] items-center justify-center'>
 
@@ -31,6 +33,8 @@ const Home = () => {
             <Contact/>
 
         </section>
+        </>
+
     )
 }
 

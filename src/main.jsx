@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     element: <LoginRegister />
   },
   {
-    path: '/profile',
+    path: '/profile/:userId',
     element: <Profile />
   },
   {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     element: <MyBot />
   },
   {
-    path: '/bot/:botId',
+    path: '/bot/:userId/:botId',
     element: <BotDetail />
   }
 ]);
@@ -47,8 +47,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UserProvider>
+    <Header/>
       <AlertProvider>
-        <Header />
         <Alert />
         <RouterProvider router={router} />
         {/* <Footer/> */}

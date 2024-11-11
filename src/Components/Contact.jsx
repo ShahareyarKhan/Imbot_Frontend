@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { BiLogoGmail } from "react-icons/bi";
 const Contact = () => {
 
@@ -9,13 +9,13 @@ const Contact = () => {
         Contact
       </h2>
       
-      <p className='text-center text-gray-500'>For any inquiries or support requests, feel free to reach out to us at <a href="mailto:shahareyar2003@gmail.com" className='text-white'>shahareyar2003@gmail.com</a>. We will get back to you as soon as possible.</p>
+      <p className='text-center text-gray-500'>For any inquiries or support requests, feel free to reach out to us at <a href="mailto:saransuman1757@gmail.com" className='text-white'>saransuman1757@gmail.com</a>. We will get back to you as soon as possible.</p>
 
       
       <div className="flex justify-center gap-8 py-8">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
           <div className="p-2 social-icons">
-            <FaFacebook className="text-3xl hover:text-blue-600 transition duration-300" />
+            <FaLinkedin className="text-3xl hover:text-blue-600 transition duration-300" />
           </div>
         </a>
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">

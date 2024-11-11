@@ -18,12 +18,11 @@ const Alert = () => {
 
     return (
         <div className='w-full flex justify-center sticky top-0 z-50'> 
-            <div className="w-full text-center bg-red-800 relative p-6 text-white">
-                <div className='flex items-center justify-center gap-2 text-sm'>
-                    <IoAlert className='text-xl' />
+            <div className={`w-full text-center bg-red-500 relative p-4 text-black animate-slide-in`}>
+                <div className='flex items-center justify-center gap-2 '>
                     {alrtMsg}
                 </div>
-                <div className='cursor-pointer absolute top-2 right-2'>
+                <div className='cursor-pointer absolute top-3 right-3'>
                     <IoClose className='text-xl' onClick={() => setAlrtMsg(null)} />
                 </div>
             </div>
