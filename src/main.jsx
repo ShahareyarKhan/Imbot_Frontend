@@ -6,7 +6,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import CreateBot from './Components/CreateBot.jsx';
 import Header from './Components/Header.jsx';
 import LoginRegister from './Authentication/LoginRegister.jsx';
-import Footer from './Components/Footer.jsx';
 import Alert from './Components/Alert.jsx';
 import { AlertProvider } from './AlertContext.jsx';
 import ParticlesComponent from './Components/ParticlesComponent.jsx';
