@@ -14,8 +14,8 @@ const Home = () => {
             <div className='flex flex-col min-h-[80vh] md:min-h-[90vh] items-center justify-center'>
 
                 <div className='w-[90%] md:w-[80%]  mx-auto flex flex-col gap-3 '>
-                    <h1 className='font-bold bg-gradient-to-r md:text-center from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-5xl leading-[60px] md:leading-[80px] md:text-6xl py-7'>Effortlessly Create Your Own AI Chatbot in Just One Step.</h1>
-                    <p className=' text-gray-600 md:text-center md:text-xl'>Harness the power of AI to build personalized chatbots tailored to your needs. It's fast, easy, and powerful.</p>
+                    <h1 className='font-bold bg-gradient-to-r md:text-center from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-5xl leading-[60px] md:leading-[80px] md:text-6xl py-7'>Create AI chatbots and get instant, concise text summaries effortlessly.</h1>
+                    <p className=' text-gray-600 md:text-center text-sm md:text-md'>Leverage AI to create personalized chatbots and generate concise, accurate text summaries. It’s fast, simple, and powerful—built to meet your needs.</p>
                 </div>
 
                 <div className='flex gap-10 w-[90%] mx-auto mt-14 md:justify-center md:gap-14'>
