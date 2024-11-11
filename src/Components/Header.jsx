@@ -45,7 +45,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 bg-[#06012b] z-50">
+    <header className="sticky top-0 bg-[#06012b] z-40">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-14">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
@@ -126,9 +126,9 @@ export default function Header() {
         )}
       </nav>
 
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#07062b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden ">
+        <div className="fixed inset-0 " />
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#07062b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -141,10 +141,10 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a href="#home" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white">Home</a>
-                <a href="#features" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white">Features</a>
-                <a href="#pricing" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white">Pricing</a>
-                <a href="#contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white">Contact</a>
+                <a href="#home" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Home</a>
+                <a href="#features" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Features</a>
+                <a href="#pricing" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Pricing</a>
+                <a href="#contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Contact</a>
               </div>
               <div className="py-6 text-center"></div>
             </div>
