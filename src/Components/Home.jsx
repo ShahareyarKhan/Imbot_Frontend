@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <>
         <section id='home'>
-            <div className='flex flex-col min-h-[90vh] md:min-h-[90vh] items-center justify-center'>
+            <div className='flex flex-col min-h-[80vh] md:min-h-[90vh] items-center justify-center'>
 
                 <div className='w-[90%] md:w-[80%]  mx-auto flex flex-col gap-3 '>
                     <h1 className='font-bold bg-gradient-to-r md:text-center from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-5xl leading-[60px] md:leading-[80px] md:text-6xl py-7'>Effortlessly Create Your Own AI Chatbot in Just One Step.</h1>
