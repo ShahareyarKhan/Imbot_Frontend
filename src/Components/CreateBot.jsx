@@ -137,8 +137,7 @@ const CreateBot = () => {
   return (
     <div className='flex flex-col items-center justify-center min-h-[90vh] '>
 
-      {/* <FaLeftLong className='text-xl md:text-xl text-white absolute top-10 left-8 md:top-14 md:left-14 cursor-pointer' onClick={() => window.history.back()}/> */}
-      <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-center py-4 text-4xl md:text-5xl px-8'>Welcome, {user ? user.name : "User"}.</h1>
+      <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-center py-4 text-3xl md:text-4xl px-8'>Welcome, {user ? user.name : "User"}.</h1>
       <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white border-b">Create Your AI Bot</h1>
       <p className="text-gray-500 text-sm mb-4 text-center px-8">
         Professionally train your bot using your resume, research papers, books, or any other PDFs!
@@ -160,7 +159,7 @@ const CreateBot = () => {
             id=""
             // value={pdftext}
             placeholder="Enter text here"
-            className="w-[90%]  border  mx-auto bg-[#101236] resize-none outline-none border-gray-500 p-3 h-[50px]  rounded text-white text-sm overflow-y-auto"
+            className="w-[90%]  border  mx-auto bg-[#101236] resize-none outline-none border-gray-500 p-4 h-[50px]  rounded text-white text-sm overflow-y-auto"
             onChange={(e) => setPdfText(e.target.value)}
           ></textarea>
 
