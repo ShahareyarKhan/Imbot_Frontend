@@ -20,6 +20,11 @@ const CreateBot = () => {
   const [showModal, setShowModal] = useState(false);
   const [botName, setBotName] = useState('');
 
+  useEffect(() => {
+    if(localStorage.getItem('token')===null){
+      setAlrtMsg('Please login to create a bot.');
+    }
+  },[]);
   const handleDrag = (e) => {
     e.preventDefault();
     e.stopPropagation();
