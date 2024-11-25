@@ -299,7 +299,7 @@ const BotDetail = () => {
                 <div className="flex absolute bottom-0 w-full items-center p-1 bg-white border-t border-gray-300 rounded-b-xl">
                     <div
                         onClick={startListening}
-                        className={`text-[#075e54] bg-white text-xl  md:text-2xl px-1 rounded-full ${listening ? 'bg-red-400' : ''}`}
+                        className={` text-xl h-full  md:text-2xl px-2 rounded-full ${listening ? 'text-red-600' : 'text-[#075e54] '}`}
                         disabled={listening}
                         title="Voice Input"
                     >

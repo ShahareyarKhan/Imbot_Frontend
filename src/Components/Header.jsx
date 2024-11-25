@@ -10,7 +10,7 @@ export default function Header() {
   const [profile, setProfile] = useState(false);
   const [searchBox, setSearchBox] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const {user}=useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [searchResults, setSearchResults] = useState([]);
   const searchBoxRef = useRef(null);
 
@@ -102,7 +102,7 @@ export default function Header() {
                   className='p-1.5 min-w-[230px] bg-white px-2 rounded outline-none text-black text-sm'
                   placeholder='Search User'
                   value={searchQuery}
-              onChange={handleSearchChange}
+                  onChange={handleSearchChange}
                 />
                 <FaSearch className='text-black' />
               </div>
@@ -141,10 +141,10 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a href="#home" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Home</a>
-                <a href="#features" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Features</a>
-                <a href="#pricing" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Pricing</a>
-                <a href="#contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={()=>{setMobileMenuOpen(false)}}>Contact</a>
+                <a href="#home" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={() => { setMobileMenuOpen(false) }}>Home</a>
+                <a href="#features" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={() => { setMobileMenuOpen(false) }}>Features</a>
+                <a href="#pricing" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={() => { setMobileMenuOpen(false) }}>Pricing</a>
+                <a href="#contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:text-white" onClick={() => { setMobileMenuOpen(false) }}>Contact</a>
               </div>
               <div className="py-6 text-center"></div>
             </div>

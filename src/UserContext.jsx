@@ -26,8 +26,24 @@ export const UserProvider = ({ children }) => {
         }
     };
 
+    const deleteBot = async (botId) => {
+        try {
+            const response = await fetch(`https://imbot-backend.vercel.app/api/auth/delete-bot/${user._id}/${botId}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            console.log(data);
+            getUser();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, deleteBot }}>
             {children}
         </UserContext.Provider>
     );
