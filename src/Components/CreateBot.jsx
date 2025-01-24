@@ -6,6 +6,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Modal from '@mui/material/Modal';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 const CreateBot = () => {
   const navigate = useNavigate();
   const { alrtMsg, setAlrtMsg } = useContext(AlertContext);
@@ -135,6 +136,8 @@ const CreateBot = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className='flex flex-col items-center justify-center min-h-[90vh] '>
 
       <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-center py-4 text-3xl md:text-4xl px-8'>Welcome, {user ? user.name : "User"}.</h1>
@@ -232,6 +235,9 @@ const CreateBot = () => {
         </div>}
       </div>
     </div>
+    
+    </>
+
   );
 };
 

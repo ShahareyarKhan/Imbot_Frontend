@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
                 }
             });
             const data = await response.json();
-            console.log(data.user);
+            // console.log(data.user);
             setUser(data.user);
         } catch (error) {
             console.log(error);
@@ -35,7 +35,7 @@ export const UserProvider = ({ children }) => {
                 }
             });
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             getUser();
         } catch (error) {
             console.log(error);

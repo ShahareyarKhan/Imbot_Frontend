@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FaRobot, FaSearch, FaUserCircle } from 'react-icons/fa';
 import { UserContext } from '../UserContext';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +14,6 @@ export default function Header() {
   const { user } = useContext(UserContext);
   const [searchResults, setSearchResults] = useState([]);
   const searchBoxRef = useRef(null);
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
@@ -45,7 +45,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 bg-[#06012b] z-40">
+    <header className={`sticky top-0 bg-[#06012b] z-40 ${window.location.pathname.split('/')[1]==='bot' ? 'hidden' : 'block'}`}>
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-14">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">

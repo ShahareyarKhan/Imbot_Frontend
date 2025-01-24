@@ -5,6 +5,7 @@ import { AlertContext } from '../AlertContext';
 import { FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram, FaShare } from 'react-icons/fa';
 import { MdDelete } from "react-icons/md";
 import { IoClose } from 'react-icons/io5';
+import Header from './Header';
 
 const MyBot = () => {
     const { user, deleteBot } = useContext(UserContext);
@@ -62,7 +63,9 @@ const MyBot = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-[70vh]  overflow-auto py-8 px-4 '>
+        <>
+        <Header/>
+        <div className='flex flex-col items-center justify-center   overflow-auto py-8 px-4 '>
             {user ? <>
                 <h2 className='text-2xl md:text-3xl font-bold text-white text-center'>
                     Welcome, {user && user.name}!
@@ -135,6 +138,8 @@ const MyBot = () => {
                 )}
             </div>
         </div>
+        </>
+
     );
 };
 

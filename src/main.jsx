@@ -46,12 +46,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UserProvider>
-    <Header/>
       <AlertProvider>
         <Alert />
         <RouterProvider router={router} />
         {/* <Footer/> */}
-        <ParticlesComponent />
+        {/* <ParticlesComponent /> */}
       </AlertProvider>
     </UserProvider>
 

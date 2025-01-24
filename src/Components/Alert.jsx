@@ -17,9 +17,9 @@ const Alert = () => {
     if (!alrtMsg) return null;
 
     return (
-        <div className='w-full flex justify-center sticky top-0 z-50'> 
-            <div className={`w-full text-center bg-red-500 relative p-4 text-black animate-slide-in`}>
-                <div className='flex items-center justify-center gap-2 '>
+        <div className=' flex justify-center absolute top-[70px] right-0 z-50'>
+            <div className={`w-full text-center p-6 px-16 bg-red-500 border-l-4 border-red-700 relative  text-black animate-slide-in`}>
+                <div className='flex items-center text-sm justify-center gap-2 '>
                     {alrtMsg}
                 </div>
                 <div className='cursor-pointer absolute top-3 right-3'>

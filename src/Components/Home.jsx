@@ -6,11 +6,15 @@ import { FaArrowRight } from 'react-icons/fa6'
 import Pricing from './Pricing'
 import Contact from './Contact'
 import Header from './Header'
+import ParticlesComponent from './ParticlesComponent'
 
 const Home = () => {
     return (
         <>
+        <ParticlesComponent/>
+        <Header/>
         <section id='home'>
+
             <div className='flex flex-col min-h-[80vh] md:min-h-[90vh] items-center justify-center'>
 
                 <div className='w-[90%] md:w-[80%]  mx-auto flex flex-col gap- '>

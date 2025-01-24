@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Header from './Header';
 
 const Profile = () => {
     const { userId } = useParams(); // Get the userId from the URL params
@@ -46,6 +47,8 @@ const Profile = () => {
     }
 
     return (
+        <>
+        <Header/>
         <div className='min-h-[90vh] flex flex-col w-full mx-auto justify-center'>
             <div className='bg-white w-[90%] mx-auto rounded-lg p-6 max-w-[500px]  flex flex-col justify-center gap-2 py-10 '>
                 <p className='font-bold text-3xl text-center md:text-3xl text-black'>Profile</p>
@@ -78,6 +81,8 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+        </>
+
     );
 };
 
