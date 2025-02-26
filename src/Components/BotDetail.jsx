@@ -128,7 +128,7 @@ const[mute, setmute]=useState(false);
     return (
         <div className="flex items-center justify-between min-h-[100vh]">
             <div className="min-h-screen w-full lg:w-[50%] lg:rounded-xl lg:min-h-[85vh] mx-auto shadow-lg overflow-hidden relative shadow-gray-800">
-                <nav className="p-4 px-5 flex items-center justify-between gap-4 bg-[#0c1940] text-white">
+                <nav className="p-4 px-5 flex items-center justify-between gap-4 bg-[#071337] text-white">
                     <div className="flex items-center gap-4">
                         <FaArrowLeft className="cursor-pointer text-xl" onClick={() => window.history.back()} />
                         <FaRobot className="text-2xl" />

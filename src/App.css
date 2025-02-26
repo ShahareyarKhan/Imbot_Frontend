@@ -60,9 +60,6 @@ body {
   color: rgb(196, 172, 172);
 }
 
-.logbtn:hover {
-  box-shadow: 250px 15px 10px rgba(128, 0, 128, 0.577) inset, -250px -15px 15px rgba(128, 0, 128, 0.577) inset;
-}
 
 ::-webkit-scrollbar{
   width: 2px;
@@ -74,9 +71,10 @@ body {
 }
 
 .social-icons {
+  border-radius: 50px;
   transition: all 0.4s ease;
-  filter: drop-shadow(4px 4px 10px rgb(0, 0, 0));
-  color: rgb(59, 59, 255);
+  filter: drop-shadow(4px 4px 10px);
+  box-shadow: 0px 0px 10px ;
  }
 
  @keyframes slide-in {

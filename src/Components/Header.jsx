@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { FaRobot, FaSearch, FaUserCircle } from 'react-icons/fa';
+import { FaRobot, FaSearch, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { UserContext } from '../UserContext';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { IoMdSettings } from "react-icons/io";
+import { GoDependabot } from "react-icons/go";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,11 +47,11 @@ export default function Header() {
   };
 
   return (
-    <header className={`sticky top-0 bg-[#06012b] z-40 ${window.location.pathname.split('/')[1]==='bot' ? 'hidden' : 'block'}`}>
+    <header className={`sticky top-0 bg-[#06012b] z-40 ${window.location.pathname.split('/')[1] === 'bot' ? 'hidden' : 'block'}`}>
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-14">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
-            <FaRobot className='text-3xl text-indigo-500' />
+            <FaRobot className='text-3xl text-white' />
           </a>
         </div>
         {localStorage.getItem("token") && (
@@ -75,12 +77,12 @@ export default function Header() {
           ) : (
             <div className='flex gap-6'>
               <div className="text-sm font-semibold leading-6 rounded text-white flex items-center cursor-pointer" style={{ transition: 'all 0.4s ease' }}>
-                <FaUserCircle className='text-2xl text-indigo-400 bg-black rounded-full' onMouseEnter={() => setProfile(true)} onMouseLeave={() => setProfile(false)} />
+                <FaUserCircle className='text-2xl text- bg-black rounded-full' onMouseEnter={() => setProfile(true)} onMouseLeave={() => setProfile(false)} />
               </div>
             </div>
           )}
           <div type="button" onClick={() => setMobileMenuOpen(true)} className="-m-2.5 cursor-pointer inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <Bars3Icon aria-hidden="true" className="h-7 text-indigo-600 w-7" />
+            <Bars3Icon aria-hidden="true" className="h-7 text-white w-7" />
           </div>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -114,14 +116,26 @@ export default function Header() {
         </div>
 
         {profile && (
-          <div className='absolute top-[54px] z-50 rounded bg-[#0f1c5c] min-w-[150px] right-4 py-3' onMouseEnter={() => setProfile(true)} onMouseLeave={() => setProfile(false)}>
-            <div className='p-2 hover:bg-[#334c65] px-3 font-semibold text-sm cursor-pointer'>Settings</div>
-            <a href='/your-bots' className='block p-2 hover:bg-[#334c65] px-3 font-semibold text-sm cursor-pointer'>Your bots</a>
-            <a href={`/profile/${user && user._id}`} className='block p-2 hover:bg-[#334c65] px-3 font-semibold text-sm cursor-pointer'>Profile</a>
-            <div className='p-2 hover:bg-[#334c65] px-3 font-semibold text-sm cursor-pointer' onClick={() => {
+          <div className='absolute top-[53px] z-50 rounded-md bg-[#06012b] min-w-[160px] right-4 ' onMouseEnter={() => setProfile(true)} onMouseLeave={() => setProfile(false)}>
+            <div className='p-2  px-3  text-sm cursor-pointer flex  gap-2 items-center  m-2 hover:text-indigo-600'>
+              <div><IoMdSettings className='text-xl ' /></div>
+              <div className='text-xs'>Settings</div>
+            </div>
+            <a href='/your-bots' className='p-2  px-3  text-sm cursor-pointer flex  gap-2 items-center  m-2 hover:text-indigo-600'>
+              <div><GoDependabot className='text-xl ' /></div>
+              <div className='text-xs'>Your Bots</div>
+            </a>
+            <a href={`/profile/${user && user._id}`} className='p-2  px-3  text-sm cursor-pointer flex  gap-2 items-center  m-2 hover:text-indigo-600'>
+              <div><FaUserCircle className='text-xl ' /></div>
+              <div className='text-xs'>Profile</div>
+            </a>
+            <div className='p-2  px-3  text-sm cursor-pointer flex  gap-2 items-center  m-2 hover:text-indigo-600' onClick={() => {
               localStorage.clear();
               window.location.reload();
-            }}>Logout</div>
+            }}>
+              <div><FaSignOutAlt className='text-xl ' /></div>
+              <div className='text-xs'>Logout</div>
+            </div>
           </div>
         )}
       </nav>
@@ -132,10 +146,10 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <FaRobot className='text-3xl text-indigo-700' />
+              <FaRobot className='text-3xl text-white' />
             </a>
-            <div type="button" onClick={() => setMobileMenuOpen(false)} className="-m-2.5 rounded-md p-2.5 text-gray-500">
-              <XMarkIcon aria-hidden="true" className="h-6 w-6 cursor-pointer hover:text-white" />
+            <div type="button" onClick={() => setMobileMenuOpen(false)} className="-m-2.5 rounded-md p-2.5 text-white">
+              <XMarkIcon aria-hidden="true" className="h-6 w-6 cursor-pointer hover:text-indigo-600" />
             </div>
           </div>
           <div className="mt-6 flow-root">
